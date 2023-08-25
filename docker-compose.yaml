@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  svc1:
+    container_name: svc1
+    build: .
+    command: ping -D svc2
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+
+  svc2:
+    container_name: svc2
+    build: .
+    command: sleep infinity
